@@ -11,6 +11,8 @@ outer_height = 10.0
 wall_th = 1.6
 top_dia = 44.0
 top_height = 8.0
+top_radius = 5
+bottom_radius = 3
 
 # dependend params
 
@@ -50,10 +52,10 @@ with BuildPart() as funnel:
             l1 = Polyline(*pts)
             l2 = Line(l1 @ 1, l1 @ 0)
         make_face()
-    revolve(axis=Axis.Z, revolution_arc=60)
+    revolve(axis=Axis.Z, revolution_arc=360)
     edges = funnel.edges().filter_by_position(Axis.Z, minimum=12, maximum=27)
-    fillet(edges[:2], radius=3)
-    fillet(edges[-2:], radius=5)
+    fillet(edges[-2:], radius=top_radius)
+    fillet(edges[:2], radius=bottom_radius)
 
 show_object(funnel)
 
