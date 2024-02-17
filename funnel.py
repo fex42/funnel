@@ -12,6 +12,8 @@ wall_th = 1.6
 top_dia = 44.0
 top_height = 8.0
 
+# dependend params
+
 x1 = inner_dia/2 - wall_th
 x2 = inner_dia/2
 x3 = outer_dia/2
